@@ -11,12 +11,42 @@ const displayCountries=(countries)=>{
     container.innerHTML=allCountries.join(' ');
 }
 
-const getCountryHtml=(country)=>{
+//parameter destructuring
+const getCountryHtml=({name,flags,area,region})=>{
     return `
     <div class="country">
-        <h1>${country.name.common}</h1>
-        <img src="${country.flags.png}">
+        <h1>${name.common}</h1>
+        <p> continent:${region}</p>
+        <p>Area: ${area}</p>
+        <img src="${flags.png}">
     </div>
     `
 }
+
+
+//     //object destructuring
+
+
+// const getCountryHtml=(country)=>{
+//     const {name,flags}= country;
+//     return `
+//     <div class="country">
+//         <h1>${name.common}</h1>
+//         <img src="${flags.png}">
+//     </div>
+//     `
+// }
+
+
+
+// Original
+
+// const getCountryHtml=(country)=>{
+//     return `
+//     <div class="country">
+//         <h1>${country.name.common}</h1>
+//         <img src="${country.flags.png}">
+//     </div>
+//     `
+// }
 loadCountries();
